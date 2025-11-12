@@ -1,1 +1,1 @@
-web: gunicorn Nerdhub.wsgi
+web: gunicorn NerdHub.wsgi
