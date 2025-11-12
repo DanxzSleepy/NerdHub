@@ -1,0 +1,15 @@
+# .gitignore (crie no root)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+.env
+.venv/
+venv/
+.env.*
+/*.log
+/staticfiles/
+/media/
+node_modules/
+.DS_Store
