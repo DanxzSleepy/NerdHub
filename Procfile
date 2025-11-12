@@ -1,1 +1,1 @@
-web: gunicorn NerdHub.wsgi --log-file -
+web: gunicorn ProjetoNerdHub.wsgi
