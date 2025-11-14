@@ -1,0 +1,118 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}NerdHub{% endblock %}</title>
+
+    <!-- CSS principal do layout -->
+    <link rel="stylesheet" href="{% static 'css/style_base.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    {% block head %}{% endblock %}
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="top-header">
+        <div class="top-bar">
+            <div class="logo">
+                <a href="/">NERDHUB</a>
+            </div>
+
+            <div class="search-container">
+                <input class="search-input" type="text" placeholder="O que você está procurando?">
+                <button class="search-button">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+
+            <div class="icons">
+                <a href="#" class="cart-icon">🛒</a>
+
+                {% if user.is_authenticated %}
+                    <div class="user-menu">
+                        <a>Olá, {{ user.username }} ▼</a>
+                        <div class="user-menu-content">
+                            <a href="#">Meu Perfil</a>
+                            <a href="#">Meus Endereços</a>
+                            <a href="#">Sair</a>
+                        </div>
+                    </div>
+                {% else %}
+                    <a href="#">Entrar</a>
+                {% endif %}
+            </div>
+
+        </div>
+
+        <!-- NAV -->
+        <nav class="main-nav">
+            <ul>
+                <li><a href="/" class="nav-link">Início</a></li>
+                <li><a href="#" class="nav-link">Sobre</a></li>
+                <li><a href="#" class="nav-link">Suporte</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- CONTEÚDO -->
+    <main>
+        {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-top">
+            <div>
+                <h4>Nerd Hub</h4>
+                <p>Sua loja de confiança para produtos de alta qualidade.</p>
+            </div>
+            <div>
+                <h4>Links Rápidos</h4>
+                <ul>
+                    <li><a href="/">Principal</a></li>
+                    <li><a href="#">Sobre Nós</a></li>
+                    <li><a href="#">Loja</a></li>
+                    <li><a href="#">Suporte</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Categorias</h4>
+                <ul>
+                    <li><a href="#">Colecionáveis</a></li>
+                    <li><a href="#">Games</a></li>
+                    <li><a href="#">Acessórios</a></li>
+                    <li><a href="#">Vestuário</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Redes Sociais</h4>
+                <div class="social-icons">
+                    <a href="#">📘</a>
+                    <a href="#">📸</a>
+                    <a href="#">✖️</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 NerdHub. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

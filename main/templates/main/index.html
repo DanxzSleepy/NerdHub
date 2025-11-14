@@ -1,16 +1,66 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+{% extends 'main/base.html' %}
 {% load static %}
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NerdHub</title>
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-</head>
-<body>
-    <div class="container">
-        <h1>🚀 Bem-vindo ao NerdHub</h1>
-        <p>Seu portal para o universo dos códigos e ideias</p>
+
+{% block title %}Página Inicial - NerdHub{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/style_index.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="banner">
+    <img src="{% static 'img/banner.png' %}" alt="Banner Promocional">
+</section>
+
+<section class="beneficios">
+    <div class="beneficio-item">
+        <img src="{% static 'img/icon_cartao.png' %}">
+        <p>Em até 12x sem juros</p>
     </div>
-</body>
-</html>
+
+    <div class="beneficio-item">
+        <img src="{% static 'img/icon_carro_entrega.png' %}">
+        <p>Entrega rápida</p>
+    </div>
+
+    <div class="beneficio-item">
+        <img src="{% static 'img/icon_caixa.png' %}">
+        <p>Frete grátis</p>
+    </div>
+
+    <div class="beneficio-item">
+        <img src="{% static 'img/icon_pix.png' %}">
+        <p>Selecione o Pix e ganhe 5% de desconto</p>
+    </div>
+</section>
+
+<section class="marcas-section">
+    <h2>Navegue por Marcas Famosas</h2>
+
+    <div class="brand-buttons">
+
+        <button class="brand-img-button">
+            <img src="{% static 'img/BannerDisney.png' %}">
+        </button>
+
+        <button class="brand-img-button">
+            <img src="{% static 'img/BannerMarvel.png' %}">
+        </button>
+
+        <button class="brand-img-button">
+            <img src="{% static 'img/BannerStarWars.png' %}">
+        </button>
+
+        <button class="brand-img-button">
+            <img src="{% static 'img/BannerPlayStation.png' %}">
+        </button>
+
+        <button class="brand-img-button">
+            <img src="{% static 'img/BannerXbox.png' %}">
+        </button>
+
+    </div>
+</section>
+
+{% endblock %}
